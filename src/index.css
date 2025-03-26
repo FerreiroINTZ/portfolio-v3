@@ -1,10 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 *{
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family: 'JetBrains Mono', serif;
 }
 
 body{
-  background: #212121;
+  background: #151827;
+  width: 100vw;
+  height: 100vh;
   color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+h1{
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0px;
+  font-size: 40px;
+  /* width: fit-content; */
+  /* background: red; */
+  width: fit-content;
+  margin-left: 110px;
+  margin-top: 10px;
+  /* user-select: none; */
+
+  .title1{
+    position: relative;
+    right: 30px;
+    height: fit-content;
+    top: 20px;
+    align-self: end;
+    /* background: blue; */
+  }
+  
+  .title3{
+    position: relative;
+    justify-self: end;
+    left: 125px;
+    bottom: 20px;
+    height: fit-content;
+    /* background: red; */
+    
+  }
+  
+  .title2{
+    font-size: 80px;
+    height: fit-content;
+    /* background: green; */
+  }
+}
+
+.lights{
+  position: absolute;
+  z-index: -1;
+  border-radius: 100%;
+  top: 180px;
+  left: 250px;
+  box-shadow: 0px 0px 100px 100px #182137;
+  width: 0px;
+  height: 0px;
+  background: red;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  width: 460px;
+  margin: 30px 0px 0px 60px;
+
+  span{
+    background: #182137;
+    padding: 5px;
+    font-family: 16px;
+    padding: 5px 15px 5px 15px;
+    cursor: pointer;
+    transition: .3s;
+    user-select: none;
+
+    &:hover{
+      transform: scale(1.05);
+    }
+  }
+}
+
+p{
+  margin: 50px 0px 0px 60px;
+  width: 460px;
+  text-align: justify;
 }
