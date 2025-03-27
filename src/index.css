@@ -58,12 +58,21 @@ h1{
   position: absolute;
   z-index: -1;
   border-radius: 100%;
-  top: 180px;
-  left: 250px;
   box-shadow: 0px 0px 100px 100px #182137;
   width: 0px;
   height: 0px;
   background: red;
+}
+
+.light-title{
+  top: 180px;
+  left: 250px;
+}
+
+.light-code-logo{
+  right: 390px;
+  top: 250px;
+  /* box-shadow: 0px 0px 100px 50px red; */
 }
 
 nav{
@@ -71,8 +80,28 @@ nav{
   justify-content: space-between;
   width: 460px;
   margin: 30px 0px 0px 60px;
-
-  span{
+  
+  #inp-menu:checked ~ #label-inp-menu{
+    color: #344160;
+    background: #FFFFFF;
+  }
+  
+  #inp-tecnologias:checked ~ #label-inp-tecnologias{
+    color: #344160;
+    background: #FFFFFF;
+  }
+  
+  #inp-projetos:checked ~ #label-inp-projetos{
+    color: #344160;
+    background: #FFFFFF;
+  }
+  
+  #inp-contatos:checked ~ #label-inp-contatos{
+    color: #344160;
+    background: #FFFFFF;
+  }
+  
+  label{
     background: #182137;
     padding: 5px;
     font-family: 16px;
@@ -91,4 +120,16 @@ p{
   margin: 50px 0px 0px 60px;
   width: 460px;
   text-align: justify;
+}
+
+#code-img{
+  width: 350px;
+  height: 350px;
+  justify-self: center;
+  margin-top: 70px;
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
 }
