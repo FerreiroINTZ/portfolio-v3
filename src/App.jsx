@@ -1,67 +1,52 @@
-import { useState, useEffect } from "react"
-import code_logo from "./imgs/code.png"
+import { useState, useEffect } from "react";
+import code_logo from "./imgs/code.png";
 
-import Menu from "./components/menu/menu.jsx"
-import Tecnologias from "./components/tecnologias/tecnologias.jsx"
+import { Outlet, useLocation } from "react-router-dom";
+
+import Menu from "./components/menu/menu.jsx";
+import Projetos from "./components/projetos/projetos.jsx";
+import Contatos from "./components/contatos/contatos.jsx";
 
 function App() {
-  const [pages, setPages] = useState()
-  const [currentPage, setCurrentPage] = useState("menu")
+  const [pages, setPages] = useState([]);
+  const [currentPage, setCurrentPage] = useState("menu");
 
-  useEffect(() =>{
+  const [currentTecnologie, setCurrentTecnologie] = useState({tecnologie: "", img: ""})
+  // sera usado nas tecnologias
+
+  const rota = useLocation();
+
+  useEffect(() => {
     setPages([
-      {page: "menu", componente: <Menu />},
-      {page: "tecnologias", componente: <Tecnologias />}
-    ])
-  }, [])
+      { page: "menu", componente: <Menu /> },
+      { page: "tecnologias"},
+      { page: "projetos", componente: <Projetos /> },
+      { page: "contatos", componente: <Contatos /> },
+    ]);
+    // console.log(rota.pathname);
+  }, []);
   return (
     <>
       <div id="body-pt1">
-        <span className="lights light-title"></span>
-      <h1>
-        <span className="title title1">Ola, seja</span>
-        <span className="title title2">Bem Vindo!</span>
-        <span className="title title3">ao meu Portfolio</span>
-      </h1>
-      <nav>
-        {/* Transfoemar isto em um componente */}
-        <input 
-          type="radio" 
-          name="select-section" 
-          id="inp-menu" 
-          value="menu" 
-          hidden/>
-        <label htmlFor="inp-menu" id="label-inp-menu">Menu</label>
-        <input 
-          type="radio" 
-          name="select-section" 
-          id="inp-tecnologias" 
-          value="tecnologias" 
-          hidden/>
-        <label htmlFor="inp-tecnologias" id="label-inp-tecnologias">Tecnologias</label>
-        <input 
-          type="radio" 
-          name="select-section"  
-          id="inp-projetos" 
-          value="projetos" 
-          hidden/>
-        <label htmlFor="inp-projetos" id="label-inp-projetos">Projetos</label>
-        <input 
-          type="radio" 
-          name="select-section" 
-          id="inp-contatos" 
-          value="contatos"
-          hidden/>
-        <label htmlFor="inp-contatos" id="label-inp-contatos">Contatos</label>
-      </nav>
-      <p>Portfolio de um desenvolvedor Full-Stack em busca de projetos ou vagas. Capaz de criar aplicacoes web com ou sem APIs proprias. No front-end, sendo capaz de criar animacoes e responsividade usando frameworks e conceitos de responsividade. No Back-end capaz de criar sistemas de autenticacao, cookies, Banco de dados, e/ou features expecificas. Sempre estou aprendendo coisas novas.</p>
+        <Menu 
+          pages={pages} 
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          style={{scale: 0.5}}/>
+        <div id="rota" style={{scale: 1}}>
+          <Outlet context={{part: 1, currentTecnologie, setCurrentTecnologie}}/>
+        </div>
       </div>
-      <div id="code-img">
-        <img src={code_logo} alt="" />
-        <span className="lights light-code-logo"></span>
+      <div id="body-pt2">
+        {rota.pathname == "/"
+          ? <>
+              <img src={code_logo} alt="" />
+              <span className="lights light-code-logo"></span>
+            </>
+          : <Outlet context={{part: 2, currentTecnologie, setCurrentTecnologie}} />}
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
