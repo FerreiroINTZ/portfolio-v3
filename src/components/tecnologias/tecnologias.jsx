@@ -14,12 +14,22 @@ const TecnologiesField = ({
 }) => {
   // Parte do codigo com o texto e o container com as tecnologias.
 
+  const [tecnologiLabel, setTecnologieLabel] = useState(currentTecnologieWay.split("_"[0]))
+  // contera o valor atual da tecnologia,  mas formatado
+
   useEffect(() => {
-    console.log(currentTecnologieWay);
-  }, []);
+    console.log("CurrentTecnologiWay: ", currentTecnologieWay);
+    console.log("tecnologieLabel: ", tecnologiLabel);
+    const newLabel = 
+      `${currentTecnologieWay.split("_")[0]}
+       ${currentTecnologieWay.split("_")[1] 
+          ? currentTecnologieWay.split("_")[1]
+          : ''}`
+    setTecnologieLabel(newLabel)
+  }, [currentTecnologieWay]);
 
   const myTecnologies = {
-    front_end_content: [
+    Front_End: [
       {
         tecnologie: "JavaScript",
         img: "js.png",
@@ -58,7 +68,7 @@ const TecnologiesField = ({
         about: "",
       },
     ],
-    back_end_content: [
+    Back_End: [
       {
         tecnologie: "Node",
         img: "node-js.png",
@@ -141,7 +151,7 @@ const TecnologiesField = ({
             )
           )}
         </ul>
-        <div id="tecnologies-way-label">{currentTecnologieWay}</div>
+        <div id="tecnologies-way-label">{tecnologiLabel}</div>
         <div id="next-arrow-left" onClick={() => setCurrentTecnologieWay()}><img src={arrow} alt="arrow" /></div>
       </div>
     </>
@@ -153,6 +163,7 @@ function TecnologiesCard({ currentTecnologie }) {
 
   return (
     <div id="tecnologie-explained-contaner">
+      <span style={{top: "300px"}} className="lights light-code-logo"></span>
       <div id="tecnologie-explained_img-title">
         <h3 id="tecnologie-explained-title">
           {currentTecnologie.tecnologie
@@ -171,8 +182,9 @@ function TecnologiesCard({ currentTecnologie }) {
         </div>
       </div>
       <div id="tecnologie-explained-field">
-        Ao selecionar alguma tecnologia, sera explicado um pouco sobre seu uso
-        em meus projetos.
+        {currentTecnologie.about 
+          ? currentTecnologie.about
+          : "Ao selecionar alguma tecnologia, sera explicado um pouco sobre seu uso em meus projetos."}
       </div>
     </div>
   );

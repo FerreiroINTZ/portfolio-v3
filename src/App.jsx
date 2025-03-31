@@ -15,15 +15,17 @@ function App() {
 
   function changeTecnologieWay(vall){
     console.log(vall)
-    if(vall === "front_end_content"){
-      return "back_end_content"
-    }else if(vall === "back_end_content"){
+    if(vall === "Front_End"){
+      return "Back_End"
+    }else if(vall === "Back_End"){
       return "tools"
     }
-    return "front_end_content"
+    return "Front_End"
   }
 
-  const [currentTecnologieWay, setCurrentTecnologieWay] = useReducer(changeTecnologieWay, "front_end_content")
+  const [currentTecnologieWay, setCurrentTecnologieWay] = 
+    useReducer(changeTecnologieWay, "Front_End", () => {return "tools"})
+    //era pra o "init" retornar "Front-End", resolver isso depois
   // contera qual vertente sera exibidas (front-end; back-end; tools)
   const [currentTecnologie, setCurrentTecnologie] = useState({tecnologie: "", img: ""})
   // sera usado nas tecnologias
