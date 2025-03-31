@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import code_logo from "./imgs/code.png";
 
 import { Outlet, useLocation } from "react-router-dom";
@@ -9,8 +9,22 @@ import Contatos from "./components/contatos/contatos.jsx";
 
 function App() {
   const [pages, setPages] = useState([]);
+  //contem as secoes do site
   const [currentPage, setCurrentPage] = useState("menu");
+  // contem a secao atual do site
 
+  function changeTecnologieWay(vall){
+    console.log(vall)
+    if(vall === "front_end_content"){
+      return "back_end_content"
+    }else if(vall === "back_end_content"){
+      return "tools"
+    }
+    return "front_end_content"
+  }
+
+  const [currentTecnologieWay, setCurrentTecnologieWay] = useReducer(changeTecnologieWay, "front_end_content")
+  // contera qual vertente sera exibidas (front-end; back-end; tools)
   const [currentTecnologie, setCurrentTecnologie] = useState({tecnologie: "", img: ""})
   // sera usado nas tecnologias
 
@@ -34,7 +48,12 @@ function App() {
           setCurrentPage={setCurrentPage}
           style={{scale: 0.5}}/>
         <div id="rota" style={{scale: 1}}>
-          <Outlet context={{part: 1, currentTecnologie, setCurrentTecnologie}}/>
+          <Outlet context={{
+            part: 1, 
+            currentTecnologie, 
+            setCurrentTecnologie, 
+            currentTecnologieWay, 
+            setCurrentTecnologieWay}}/>
         </div>
       </div>
       <div id="body-pt2">
@@ -43,7 +62,12 @@ function App() {
               <img src={code_logo} alt="" />
               <span className="lights light-code-logo"></span>
             </>
-          : <Outlet context={{part: 2, currentTecnologie, setCurrentTecnologie}} />}
+          : <Outlet context={{
+            part: 2, 
+            currentTecnologie, 
+            setCurrentTecnologie,
+            currentTecnologieWay,
+            setCurrentTecnologieWay}} />}
       </div>
     </>
   );

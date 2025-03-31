@@ -25,7 +25,7 @@ function menu({ pages, currentPage, setCurrentPage }) {
           ) {
             return (
               <NavBarr
-                key={Math.floor(Math.random() * 1000)}
+                key={x.page}
                 page={x.page}
                 setCurrentPage={setCurrentPage}
                 selected={true}
@@ -34,7 +34,7 @@ function menu({ pages, currentPage, setCurrentPage }) {
           } else {
             return (
               <NavBarr
-                key={Math.floor(Math.random() * 1000)}
+                key={x.page}
                 page={x.page}
                 setCurrentPage={setCurrentPage}
                 selected={false}
