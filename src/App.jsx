@@ -4,8 +4,6 @@ import code_logo from "./imgs/code.png";
 import { Outlet, useLocation } from "react-router-dom";
 
 import Menu from "./components/menu/menu.jsx";
-import Projetos from "./components/projetos/projetos.jsx";
-import Contatos from "./components/contatos/contatos.jsx";
 
 function App() {
   const [pages, setPages] = useState([]);
@@ -37,7 +35,7 @@ function App() {
       { page: "menu", componente: <Menu /> },
       { page: "tecnologias"},
       { page: "projetos"},
-      { page: "contatos", componente: <Contatos /> },
+      { page: "contatos"},
     ]);
     // console.log(rota.pathname);
   }, []);
