@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
-function navBarr({page, selected, setCurrentPage}) {
-  
+function navBarr({page, setCurrentPage}) {
+
+  const path = useLocation()
   const navigator = useNavigate()
+  
+  const [pageSelected, sePageSelected] = 
+    useState(page === "menu" 
+              ? true 
+              : path.pathname.slice(1) == page 
+                ? true
+                : false)
+
+    useEffect(() =>{
+      console.log(path.pathname)
+    }, [])
 
   function changePage(){
     setCurrentPage(page)
@@ -16,7 +28,6 @@ function navBarr({page, selected, setCurrentPage}) {
     console.log("pagina mudada")
   }
 
-  if(selected){
     return (
           <>
               <input 
@@ -24,7 +35,7 @@ function navBarr({page, selected, setCurrentPage}) {
                 name="select-section" 
                 id={`inp-${page}`} 
                 value={page} 
-                selected
+                defaultChecked={pageSelected}
                 hidden/>
               <label 
                 htmlFor={`inp-${page}`} 
@@ -32,21 +43,6 @@ function navBarr({page, selected, setCurrentPage}) {
                 onClick={() => changePage()}>{page}</label>
               </> 
         )
-  }else{
-    return(
-          <>
-              <input 
-                type="radio" 
-                name="select-section" 
-                id={`inp-${page}`} 
-                value={page} 
-                hidden
-                onClick={() => changePage()}/>
-              <label htmlFor={`inp-${page}`} id={`label-inp-${page}`}>{page}</label>
-              </> 
-
-    )
-  }
   }
 
 export default navBarr

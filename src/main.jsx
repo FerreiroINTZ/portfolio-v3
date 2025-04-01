@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import Text from "./components/text/text.jsx"
 import Tecnologias from "./components/tecnologias/tecnologias.jsx"
+import Projetos from "./components/projetos/projetos.jsx";
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -15,6 +16,7 @@ const rotas = createBrowserRouter([
     children: [
       {path: '/', element: <Text />},
       {path: '/tecnologias', element: <Tecnologias />},
+      {path: '/projetos', element: <Projetos />},
     ]
   }
 ])

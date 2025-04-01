@@ -21,27 +21,13 @@ function menu({ pages, currentPage, setCurrentPage }) {
       </h1>
       <nav>
         {pages.map((x) => {
-          if (
-            rota.pathname == "/" ? x.page == "menu" : rota.pathname == x.page
-          ) {
             return (
               <NavBarr
                 key={x.page}
                 page={x.page}
                 setCurrentPage={setCurrentPage}
-                selected={true}
               />
             );
-          } else {
-            return (
-              <NavBarr
-                key={x.page}
-                page={x.page}
-                setCurrentPage={setCurrentPage}
-                selected={false}
-              />
-            );
-          }
         })}
       </nav>
     </>

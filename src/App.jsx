@@ -36,7 +36,7 @@ function App() {
     setPages([
       { page: "menu", componente: <Menu /> },
       { page: "tecnologias"},
-      { page: "projetos", componente: <Projetos /> },
+      { page: "projetos"},
       { page: "contatos", componente: <Contatos /> },
     ]);
     // console.log(rota.pathname);
