@@ -13,7 +13,7 @@ function tecnologias_cards({ img , tecnologie, path, selectTecnologie}) {
         htmlFor={`tecnologies_cards_inp-${img}`} 
         onClick={() => selectTecnologie({tecnologie, img, path})}
         >
-        <div className="logo"><img src={`../../../public/${path}/${img}`} alt={tecnologie} /></div>
+        <div className="logo"><img src={`/${path}/${img}`} alt={tecnologie} /></div>
       </label>
     </li>
   );

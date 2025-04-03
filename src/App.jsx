@@ -28,6 +28,9 @@ function App() {
   const [currentTecnologie, setCurrentTecnologie] = useState({tecnologie: "", img: ""})
   // sera usado nas tecnologias
 
+  const [filterValue, setFilterValue] = useState("");
+  // filtro dos projetos
+
   const rota = useLocation();
 
   useEffect(() => {
@@ -53,7 +56,9 @@ function App() {
             currentTecnologie, 
             setCurrentTecnologie, 
             currentTecnologieWay, 
-            setCurrentTecnologieWay}}/>
+            setCurrentTecnologieWay,
+            filterValue,
+            setFilterValue}}/>
         </div>
       </div>
       <div id="body-pt2">
@@ -67,7 +72,9 @@ function App() {
             currentTecnologie, 
             setCurrentTecnologie,
             currentTecnologieWay,
-            setCurrentTecnologieWay}} />}
+            setCurrentTecnologieWay, 
+            filterValue,
+            setFilterValue}} />}
       </div>
     </>
   );

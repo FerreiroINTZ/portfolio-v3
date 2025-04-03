@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import { motion } from "framer-motion";
 
-import "./projetos.css"
-import ProjectCard from "./projectCard.jsx"
-import arrow from "../../imgs/arrow.png"
+import "./projetos.css";
+import ProjectCard from "./projectCard.jsx";
+import arrow from "../../imgs/arrow.png";
+import { filter } from "framer-motion/client";
 
-function TextANDfilter({setFilterValue, filterValue}) {
+function TextANDfilter({ setFilterValue, filterValue }) {
   useEffect(() => {
     console.log("Foi remderizadop!");
   }, []);
@@ -14,7 +16,8 @@ function TextANDfilter({setFilterValue, filterValue}) {
     <>
       <p>
         Veja alguns do meus projetos feitos durante minha jornada como
-        desenvolvedor ate hoje. Sele cione um filtro para apenas projetos que tenha back-end, os que tem apenas front-end, ou todas os projetos.
+        desenvolvedor ate hoje. Sele cione um filtro para apenas projetos que
+        tenha back-end, os que tem apenas front-end, ou todas os projetos.
       </p>
       <div id="projects-filter">
         <div>
@@ -23,85 +26,193 @@ function TextANDfilter({setFilterValue, filterValue}) {
             id="inp-projects-filter_todos"
             name="filters"
             value="todos"
-            checked={filterValue == "todos"}
-            hidden/>
+            defaultChecked={filterValue == ""}
+            hidden
+          />
           <label
             htmlFor="inp-projects-filter_todos"
             id="label-projects-filter_todos"
-            onClick={e => setFilterValue("todos")}
-            >Todos</label>
+            onClick={(e) => setFilterValue("")}
+          >
+            Todos
+          </label>
         </div>
         <div>
           <input
             type="radio"
             id="inp-projects_front-end"
             name="filters"
-            checked={filterValue == "front-end"}
-            hidden/>
-          <label 
+            defaultChecked={filterValue == "front-end"}
+            hidden
+          />
+          <label
             htmlFor="inp-projects_front-end"
-            onClick={e => setFilterValue("front-end")}>Front End</label>
+            onClick={(e) => setFilterValue("front-end")}
+          >
+            Front End
+          </label>
         </div>
         <div>
           <input
             type="radio"
             id="inp-projects-filter_back-end"
             name="filters"
-            checked={filterValue == "back-end"}
-            hidden/>
-          <label 
+            defaultChecked={filterValue == "back-end"}
+            hidden
+          />
+          <label
             htmlFor="inp-projects-filter_back-end"
-            onClick={e => setFilterValue("back-end")}>Back End</label>
+            onClick={(e) => setFilterValue("back-end")}
+          >
+            Back End
+          </label>
         </div>
       </div>
     </>
   );
 }
 
-function Project({projects}){
-  return(
-    <div id="project-card">
-      <ProjectCard project={projects[0]}/>
-      {/* <button className="projectArrow-next"><img src={arrow} alt="" /></button> */}
+function Project({ projects, margin, nextMargin, filterValue }) {
+  useEffect(() => {
+    console.log("Filter value: ", filterValue);
+  }, [filterValue]);
+  return (
+    <div id="project-container">
+      <button
+        id="projectArrow-back"
+        className="projectArrows"
+        onClick={() => {
+          const projectsQtd = projects.filter((x) =>
+            filterValue ? x.categoria.includes(filterValue) : true
+          ).length;
+
+          if (margin > 0) {
+            nextMargin((x) => {
+              return x - 1;
+            });
+            // verifica se ele pode voltar
+          } else if (margin == 0)
+            nextMargin((x) => {
+              return projectsQtd - 1;
+            });
+          // se a margem estiver no comeco, ele pode ir para o final
+        }}
+      >
+        <img src={arrow} alt="" />
+      </button>
+      <div id="project-card">
+        <motion.div
+          id="project_carrosel"
+          initial={{ x: "0px" }}
+          animate={{ x: `-${400 * margin}px` }}
+        >
+          {projects
+            .filter((x) =>
+              filterValue ? x.categoria.includes(filterValue) : true
+            )
+            .map((x, index) => (
+              <ProjectCard
+                key={x.nome}
+                project={x}
+                index={index}
+                currentProject={margin}
+              />
+            ))}
+        </motion.div>
+      </div>
+
+      <button
+        id="projectArrow-next"
+        className="projectArrows"
+        onClick={() => {
+          const projectsQtd = projects.filter((x) =>
+            filterValue ? x.categoria.includes(filterValue) : true
+          ).length;
+
+          if (projectsQtd - 1 > margin) {
+            nextMargin((x) => {
+              return x + 1;
+            });
+            // verifica se ele pode prosseguir
+          } else if (projectsQtd > margin) {
+            nextMargin((x) => {
+              return 0;
+            });
+            // se a margem estiver maior que o necessario, ele volta pro comeco
+          }
+        }}
+      >
+        <img src={arrow} alt="" />
+      </button>
     </div>
-  )
+  );
 }
 
 function projetos() {
-  const { part } = useOutletContext();
-
-  const [filterValue, setFilterValue] = useState("todos")
+  const { part, filterValue, setFilterValue } = useOutletContext();
 
   const listProjects = [
     {
       nome: "WhatsApp 2",
-      img: "../../../public/project/whatsaap2.png",
-      tecnologias: ["back-end/node-js.png", "back-end/fastify.jpg", "back-end/postgres.png"],
-      descricao: "Um projeto inspirado no App WhatsApp, feito para demonstrar minhas habilidades com WebSockets e Banco de dados.",
-      categoria: "back-end",
-      site: "",
-      gitHub: "https://github.com/FerreiroINTZ/Whatsapp-2"
+      img: "../../../public/project/whatsapp2.png",
+      tecnologias: [
+        "back-end/node-js.png",
+        "back-end/fastify.jpg",
+        "back-end/postgres.png",
+      ],
+      descricao:
+        "Um projeto inspirado no App WhatsApp, feito para demonstrar minhas habilidades com WebSockets e Banco de dados.",
+      categoria: ["back-end", "front-end"],
+      site: "https://github.com/FerreiroINTZ/Whatsapp-2",
+      gitHub: "https://github.com/FerreiroINTZ/Whatsapp-2",
     },
     {
       nome: "Context Word Guess",
-      tecnologias: ["back-end/node-js.png", "back-end/fastify.jpg", "back-end/postgres.jpg"],
-      descricao: "Um projeto inspirado em um jogo que vi no tik tok, onde vode tem que adivinhas as palavras da outra pesso.",
-      categoria: "back-end",
+      img: "../../../public/project/cwg.png",
+      tecnologias: [
+        "back-end/node-js.png",
+        "back-end/fastify.jpg",
+        "back-end/postgres.png",
+      ],
+      descricao:
+        "Um projeto inspirado em um jogo do Tik Tok. O objetivo e adivinhas a palavra do seu oponente.",
+      categoria: ["back-end", "front-end"],
       site: "",
-      gitHub: ""
+      gitHub: "https://github.com/FerreiroINTZ/Context-Words-Guess",
     },
-  ]
+  ];
 
-  const [projects, setProjects] = useState(listProjects)
+  const [projects, setProjects] = useState(listProjects);
+  const [next_project, setNext_project] = useState(0);
+  // responsavel por mechar o carrosel
 
   useEffect(() => {
-    console.log(filterValue);
+    const projectsQtd = projects.filter((x) =>
+      filterValue ? x.categoria.includes(filterValue) : true
+    ).length;
+    if (next_project >= projectsQtd) {
+      setNext_project(projectsQtd - 1);
+    }
   }, [filterValue]);
-  return <>{part == 1 
-              ? <TextANDfilter 
-                  setFilterValue={setFilterValue}
-                  filterValue={filterValue}/> 
-              : <Project projects={projects}/>}</>;
+  // sempre que o filtro mudar, ele vai ver se a margem ta maior que o necessario
+
+  return (
+    <>
+      {part == 1 ? (
+        <TextANDfilter
+          setFilterValue={setFilterValue}
+          filterValue={filterValue}
+        />
+      ) : (
+        <Project
+          projects={projects}
+          margin={next_project}
+          nextMargin={setNext_project}
+          filterValue={filterValue}
+        />
+      )}
+    </>
+  );
 }
 
 export default projetos;
