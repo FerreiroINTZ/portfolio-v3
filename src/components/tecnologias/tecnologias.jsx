@@ -152,7 +152,7 @@ const TecnologiesField = ({
           )}
         </ul>
         <div id="tecnologies-way-label">{tecnologiLabel}</div>
-        <div id="next-arrow-left" onClick={() => setCurrentTecnologieWay()}><img src={arrow} alt="arrow" /></div>
+        <div id="next-arrow-left" onClick={setCurrentTecnologieWay}><img src={arrow} alt="arrow" /></div>
       </div>
     </>
   );

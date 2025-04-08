@@ -21,7 +21,7 @@ function App() {
   }
 
   const [currentTecnologieWay, setCurrentTecnologieWay] = 
-    useReducer(changeTecnologieWay, "Front_End", () => {return "tools"})
+    useReducer(changeTecnologieWay, "tools")
     //era pra o "init" retornar "Front-End", resolver isso depois
   // contera qual vertente sera exibidas (front-end; back-end; tools)
   const [currentTecnologie, setCurrentTecnologie] = useState({tecnologie: "", img: ""})
@@ -29,6 +29,10 @@ function App() {
 
   const [filterValue, setFilterValue] = useState("");
   // filtro dos projetos
+
+  useEffect(() =>{
+    console.log("currentTecnologyeWay: ", currentTecnologieWay)
+  }, [currentTecnologieWay])
 
   const rota = useLocation();
 

@@ -15,7 +15,6 @@ import postgres_logo from "../../imgs/back-end/postgres.png"
 
 function TextANDfilter({ setFilterValue, filterValue }) {
   useEffect(() => {
-    console.log("Foi remderizadop!");
   }, []);
 
   return (
@@ -80,7 +79,6 @@ function TextANDfilter({ setFilterValue, filterValue }) {
 
 function Project({ projects, margin, nextMargin, filterValue }) {
   useEffect(() => {
-    console.log("Filter value: ", filterValue);
   }, [filterValue]);
   return (
     <div id="project-container">
