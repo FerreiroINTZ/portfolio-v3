@@ -7,6 +7,24 @@ import Cards from "./tecnologias_cards.jsx";
 
 import arrow from "../../imgs/arrow.png"
 
+import js_logo from "../../imgs/front-end/js.png"
+import html_logo from "../../imgs/front-end/html-5.png"
+import css_logo from "../../imgs/front-end/css-3.png"
+import react_logo from "../../imgs/front-end/react-1.svg"
+import framerMotion_logo from "../../imgs/front-end/framer-motion.svg"
+import next_logo from "../../imgs/front-end/next.jpg"
+
+import node_logo from "../../imgs/back-end/node-js.png"
+import fastify_logo from "../../imgs/back-end/fastify.jpg"
+import mongoDB_logo from "../../imgs/back-end/mongoDB.png"
+import postgres_logo from "../../imgs/back-end/postgres.png"
+
+import git_logo from "../../imgs/tools/git.png"
+import vite_logo from "../../imgs/tools/vite.png"
+import notion_logo from "../../imgs/tools/notion.png"
+import figma_logo from "../../imgs/tools/figma.webp"
+import DBdiagram_logo from "../../imgs/tools/dbDiagram.webp"
+
 const TecnologiesField = ({
   setCurrentTecnologie,
   setCurrentTecnologieWay,
@@ -30,96 +48,81 @@ const TecnologiesField = ({
     Front_End: [
       {
         tecnologie: "JavaScript",
-        img: "js.png",
-        path: "front-end",
+        img: js_logo,
         about: "Uso bastante JavaScript para fazer requisições com fetch, tratar dados das minhas APIs e formatá-los. Também utilizo bastante os métodos de arrays e objetos, principalmente no contexto do React.",
       },
       {
         tecnologie: "HTML",
-        img: "html-5.png",
-        path: "front-end",
+        img: html_logo,
         about: "Mesmo sendo simples, o HTML é fundamental pela sua semântica, importante tanto para o SEO quanto para análises com ferramentas como o Google Analytics.",
       },
       {
         tecnologie: "CSS",
-        img: "css-3.png",
-        path: "front-end",
+        img: css_logo,
         about: "Uso o CSS para criar layouts responsivos e estilos estáticos. É uma base essencial para o UX, algo muito importante para conversão e experiência do usuário.",
       },
       {
         tecnologie: "React",
-        img: "react-1.svg",
-        path: "front-end",
+        img: react_logo,
         about: "Uso o React em projetos pessoais ou em casos onde o SEO não é prioridade. Além disso, ele serve como uma boa base para evoluir para o Next.js.",
       },
       {
         tecnologie: "Next",
-        img: "next.jpg",
-        path: "front-end",
+        img: next_logo,
         about: "O framework ideal hoje em dia para o SEO da pagina. Um pocuo complexo no comeco, mas bem mais valioso do que o React.",
       },
       {
         tecnologie: "Framer Motion",
-        img: "framer-motion.svg",
-        path: "front-end",
+        img: framerMotion_logo,
         about: "Uso o Framer Motion para criar animações suaves, seja em elementos ou com base no scroll, tornando a interface mais viva e interativa.",
       },
     ],
     Back_End: [
       {
         tecnologie: "Node",
-        img: "node-js.png",
-        path: "back-end",
+        img: node_logo,
         about: "Uso o Node.js no back-end para criar APIs e também para processar ou salvar dados em massa no banco de dados.",
       },
       {
         tecnologie: "Postgres",
-        img: "postgres.png",
-        path: "back-end",
+        img: postgres_logo,
         about: "Banco de dados relacional que utilizo quando preciso de maior controle sobre dados e integridade nas relações entre tabelas.",
       },
       {
         tecnologie: "MongoDB",
-        img: "mongoDB.png",
-        path: "back-end",
+        img: mongoDB_logo,
         about: "Utilizo o MongoDB quando preciso de flexibilidade na estrutura dos dados. Ótimo para protótipos e projetos com estrutura dinâmica.",
       },
       {
         tecnologie: "Fastify",
-        img: "fastify.jpg",
-        path: "back-end",
+        img: fastify_logo,
         about: "Framework que uso para criar APIs de forma rápida e eficiente. Suporta bem recursos como cookies, WebSockets e headers personalizados.",
       },
     ],
     tools:[
       {
         tecnologie: "Git",
-        img: "git.png",
-        path: "ferramentas",
+        img: git_logo,
         about: "Indispensável para controle de versão e organização dos meus projetos, além de facilitar o trabalho em equipe.",
       },
       {
         tecnologie: "Figma",
-        img: "figma.webp",
-        path: "ferramentas",
+        img: figma_logo,
         about: "Uso o Figma para prototipar interfaces dos meus projetos. Mesmo não sendo minha especialidade, sempre começo o design por aqui antes de codar.",
       },
       {
         tecnologie: "Notion",
-        img: "notion.png",
-        path: "ferramentas",
+        img: notion_logo,
         about: "Uso o Notion para organizar minhas tarefas e acompanhar o progresso dos projetos. Me ajuda a manter foco e ter uma visão clara do que falta concluir.",
       },
       {
         tecnologie: "dbDiagram",
-        img: "dbDiagram.webp",
-        path: "ferramentas",
+        img: DBdiagram_logo,
         about: "Uso o dbDiagram para planejar a estrutura do banco de dados. Facilita a visualização das entidades, relacionamentos e dados necessários.",
       },
       {
         tecnologie: "Vite",
-        img: "vite.png",
-        path: "ferramentas",
+        img: vite_logo,
         about: "Ferramenta que agiliza a criação de projetos em React, evitando configurações manuais. Também oferece recursos modernos que otimizam o desenvolvimento.",
       }
     ]

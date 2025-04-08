@@ -8,9 +8,9 @@ import Tecnologias from "./components/tecnologias/tecnologias.jsx"
 import Projetos from "./components/projetos/projetos.jsx";
 import Contatos from "./components/contatos/contatos.jsx";
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 
-const rotas = createBrowserRouter([
+const rotas = createHashRouter([
   {
     path: "/", 
     element: <App />,
