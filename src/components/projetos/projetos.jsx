@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import "./projetos.css";
 import ProjectCard from "./projectCard.jsx";
 import arrow from "../../imgs/arrow.png";
-import { filter } from "framer-motion/client";
 
 function TextANDfilter({ setFilterValue, filterValue }) {
   useEffect(() => {
@@ -150,6 +149,8 @@ function Project({ projects, margin, nextMargin, filterValue }) {
 
 function projetos() {
   const { part, filterValue, setFilterValue } = useOutletContext();
+
+
 
   const listProjects = [
     {

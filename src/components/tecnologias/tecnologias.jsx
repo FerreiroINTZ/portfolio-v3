@@ -64,7 +64,6 @@ const TecnologiesField = ({
         tecnologie: "Framer Motion",
         img: "framer-motion.svg",
         path: "front-end",
-        path: "front-end",
         about: "",
       },
     ],

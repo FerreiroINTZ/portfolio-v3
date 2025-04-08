@@ -40,8 +40,19 @@ function App() {
       { page: "projetos"},
       { page: "contatos"},
     ]);
-    // console.log(rota.pathname);
   }, []);
+
+  useEffect(() =>{
+    // console.log(rota.pathname.slice(1))
+    const path = rota.pathname
+    console.log("Path: ", path)
+    if(path == "/"){
+      document.title = "Site | Menu"
+    }else{
+      console.log("Rotaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      document.title = `Site | ${path.slice(1)}`
+    }
+  }, [rota])
   return (
     <>
       <div id="body-pt1">
