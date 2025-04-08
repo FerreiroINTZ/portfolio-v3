@@ -6,6 +6,13 @@ import "./projetos.css";
 import ProjectCard from "./projectCard.jsx";
 import arrow from "../../imgs/arrow.png";
 
+import whatsapp2_image from "../../imgs/project/whatsapp2.png"
+import CWG_image from "../../imgs/project/cwg.png"
+
+import node_logo from "../../imgs/back-end/node-js.png"
+import fastify_logo from "../../imgs/back-end/fastify.jpg"
+import postgres_logo from "../../imgs/back-end/postgres.png"
+
 function TextANDfilter({ setFilterValue, filterValue }) {
   useEffect(() => {
     console.log("Foi remderizadop!");
@@ -155,25 +162,25 @@ function projetos() {
   const listProjects = [
     {
       nome: "WhatsApp 2",
-      img: "../../../public/project/whatsapp2.png",
+      img: whatsapp2_image,
       tecnologias: [
-        "back-end/node-js.png",
-        "back-end/fastify.jpg",
-        "back-end/postgres.png",
+        node_logo,
+        fastify_logo,
+        postgres_logo,
       ],
       descricao:
-        "Um projeto inspirado no App WhatsApp, feito para demonstrar minhas habilidades com WebSockets e Banco de dados.",
+      "Um projeto inspirado no App WhatsApp, feito para demonstrar minhas habilidades com WebSockets e Banco de dados.",
       categoria: ["back-end", "front-end"],
       site: "https://github.com/FerreiroINTZ/Whatsapp-2",
       gitHub: "https://github.com/FerreiroINTZ/Whatsapp-2",
     },
     {
       nome: "Context Word Guess",
-      img: "../../../public/project/cwg.png",
+      img: CWG_image,
       tecnologias: [
-        "back-end/node-js.png",
-        "back-end/fastify.jpg",
-        "back-end/postgres.png",
+        node_logo,
+        fastify_logo,
+        postgres_logo,
       ],
       descricao:
         "Um projeto inspirado em um jogo do Tik Tok. O objetivo e adivinhas a palavra do seu oponente.",

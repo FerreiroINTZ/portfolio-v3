@@ -9,12 +9,12 @@ function projectCard({project, currentProject, index}) {
       animate={index == currentProject ? {opacity: 1} : {opacity: .5}}>
       <p>{project.nome}</p>
       <div id="project-img">
-        <img src={`../../../public/project/${project.img}`} alt="" />
+        <img src={project.img} alt="" />
       </div>
       <ul id="projectTecnologies">
         {project.tecnologias.map((x) => (
           <li>
-            <img src={`../../../public/${x}`} />
+            <img src={x} />
           </li>
         ))}
       </ul>
