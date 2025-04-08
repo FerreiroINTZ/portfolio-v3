@@ -114,8 +114,9 @@ nav{
   }
 }
 
-p{
+.texto-menu{
   width: 460px;
+  margin-top: 10px;
   text-align: justify;
 }
 

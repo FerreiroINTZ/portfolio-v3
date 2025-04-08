@@ -1,6 +1,6 @@
 import React from "react";
 
-function tecnologias_cards({ img , tecnologie, path, selectTecnologie}) {
+function tecnologias_cards({ img , tecnologie, path, selectTecnologie, about}) {
   return (
     <li>
       <input
@@ -11,7 +11,7 @@ function tecnologias_cards({ img , tecnologie, path, selectTecnologie}) {
       />
       <label 
         htmlFor={`tecnologies_cards_inp-${img}`} 
-        onClick={() => selectTecnologie({tecnologie, img, path})}
+        onClick={() => selectTecnologie({tecnologie, img, path, about})}
         >
         <div className="logo"><img src={`/${path}/${img}`} alt={tecnologie} /></div>
       </label>

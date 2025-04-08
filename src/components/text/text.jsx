@@ -2,14 +2,21 @@ import React from "react";
 
 function text() {
   return (
-    <p>
-      Portfolio de um desenvolvedor Full-Stack em busca de projetos ou vagas.
-      Capaz de criar aplicacoes web com ou sem APIs proprias. No front-end,
-      sendo capaz de criar animacoes e responsividade usando frameworks e
-      conceitos de responsividade. No Back-end capaz de criar sistemas de
-      autenticacao, cookies, Banco de dados, e/ou features expecificas. Sempre
-      estou aprendendo coisas novas.
+    <>
+    <p className="texto-menu">
+      Desenvolvedor Full-Stack em busca de oportunidades. Crio aplicações web
+      completas, com ou sem APIs próprias.  
     </p>
+    <p className="texto-menu">
+      No front-end, foco em responsividade
+      e animações com frameworks modernos. 
+    </p>
+    <p className="texto-menu">
+      No back-end, desenvolvo autenticação,
+      banco de dados e funcionalidades sob medida. Sempre aprendendo e
+      evoluindo.
+    </p>
+    </>
   );
 }
 

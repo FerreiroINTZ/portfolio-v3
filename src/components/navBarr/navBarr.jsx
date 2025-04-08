@@ -15,7 +15,6 @@ function navBarr({page, setCurrentPage}) {
                 : false)
 
     useEffect(() =>{
-      console.log(path.pathname)
     }, [])
 
   function changePage(){
