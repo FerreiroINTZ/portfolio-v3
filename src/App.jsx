@@ -1,50 +1,31 @@
 import { useState, useEffect, useReducer } from "react";
-import code_logo from "./imgs/code.png";
 
 import { Outlet, useLocation } from "react-router-dom";
 
-import Menu from "./components/menu/menu.jsx";
+import Title from "./components/title/title.jsx";
+import Menu_logo from "./components/menu/menu_logo.jsx"
+
+import {useValues} from "./contex.jsx"
 
 function App() {
+  const rota = useLocation();
+
   const [pages, setPages] = useState([]);
   //contem as secoes do site
   const [currentPage, setCurrentPage] = useState("menu");
   // contem a secao atual do site
 
-  function changeTecnologieWay(vall){
-    if(vall === "Front_End"){
-      return "Back_End"
-    }else if(vall === "Back_End"){
-      return "tools"
-    }
-    return "Front_End"
-  }
-
-  const [currentTecnologieWay, setCurrentTecnologieWay] = 
-    useReducer(changeTecnologieWay, "tools")
-    //era pra o "init" retornar "Front-End", resolver isso depois
-  // contera qual vertente sera exibidas (front-end; back-end; tools)
-  const [currentTecnologie, setCurrentTecnologie] = useState({tecnologie: "", img: ""})
-  // sera usado nas tecnologias
-
-  const [filterValue, setFilterValue] = useState("");
-  // filtro dos projetos
-
-  useEffect(() =>{
-    console.log("currentTecnologyeWay: ", currentTecnologieWay)
-  }, [currentTecnologieWay])
-
-  const rota = useLocation();
-
+  // ============= MANTER =======================
   useEffect(() => {
     setPages([
-      { page: "menu", componente: <Menu /> },
+      { page: "menu"},
       { page: "tecnologias"},
       { page: "projetos"},
       { page: "contatos"},
     ]);
   }, []);
 
+  // Muda o nome da janela
   useEffect(() =>{
     const path = rota.pathname
     if(path == "/"){
@@ -53,39 +34,27 @@ function App() {
       document.title = `Site | ${path.slice(1)}`
     }
   }, [rota])
+
+  // ============= MANTER =======================
+ 
   return (
     <>
       <div id="body-pt1">
-        <Menu 
+        <Title 
           pages={pages} 
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           style={{scale: 0.5}}/>
         <div id="rota" style={{scale: 1}}>
           <Outlet context={{
-            part: 1, 
-            currentTecnologie, 
-            setCurrentTecnologie, 
-            currentTecnologieWay, 
-            setCurrentTecnologieWay,
-            filterValue,
-            setFilterValue}}/>
+            part: 1}}/>
         </div>
       </div>
       <div id="body-pt2">
         {rota.pathname == "/"
-          ? <>
-              <img src={code_logo} alt="" />
-              <span className="lights light-code-logo"></span>
-            </>
+          ? <Menu_logo />
           : <Outlet context={{
-            part: 2, 
-            currentTecnologie, 
-            setCurrentTecnologie,
-            currentTecnologieWay,
-            setCurrentTecnologieWay, 
-            filterValue,
-            setFilterValue}} />}
+            part: 2}} />}
       </div>
     </>
   );
