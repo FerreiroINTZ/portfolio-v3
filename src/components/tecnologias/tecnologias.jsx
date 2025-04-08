@@ -144,7 +144,6 @@ const TecnologiesField = ({
                 key={x.tecnologie}
                 img={x.img}
                 tecnologie={x.tecnologie}
-                path={x.path}
                 about={x.about}
                 selectTecnologie={setCurrentTecnologie}
               />
@@ -174,7 +173,7 @@ function TecnologiesCard({ currentTecnologie }) {
         <div id="tecnologie-explained-img">
           {currentTecnologie.img ? (
             <img
-              src={`../../../public/${currentTecnologie.path}/${currentTecnologie.img}`}
+              src={currentTecnologie.img}
               alt={currentTecnologie.tecnologie}
             />
           ) : (
