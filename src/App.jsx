@@ -45,7 +45,7 @@ function App() {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           style={{scale: 0.5}}/>
-        <div id="rota" style={{scale: 1}}>
+        <div id="rota">
           <Outlet context={{
             part: 1}}/>
         </div>

@@ -15,7 +15,7 @@ import postgres_logo from "../../imgs/back-end/postgres.png"
 
 import {useValues} from "../../contex.jsx"
 
-import Project from "./project/project.jsx"
+import Project from "./project/project_container.jsx"
 import TextAndFilter from "./TextAndFilter/TextAndFilter.jsx"
 
 function projetos() {

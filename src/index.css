@@ -13,7 +13,24 @@ body{
   height: 100vh;
   color: white;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#body-pt1{
+  padding: 0px 50px;
+}
+
+#body-pt2{
+  display: flex;
+  padding-top: 60px;
+  justify-content: center;
+  
+  #menu-logo{
+    width: 300px;
+    height: 300px;
+    justify-self: center;
+  }
 }
 
 h1{
@@ -22,12 +39,13 @@ h1{
   gap: 0px;
   font-size: 40px;
   width: fit-content;
-  margin-left: 110px;
+  height: 250px;
   margin-top: 10px;
-  /* user-select: none; */
-
+  /* background: red; */
+  
   .title1{
     position: relative;
+    font-size: clamp(30px, 9vw, 40px);
     right: 30px;
     height: fit-content;
     top: 20px;
@@ -35,20 +53,22 @@ h1{
     /* background: blue; */
   }
   
+  .title2{
+    font-size: clamp(60px, 9vw, 80px);
+    height: fit-content;
+    white-space: nowrap;
+    /* background: green; */
+  }
+  
   .title3{
+    font-size: clamp(30px, 9vw, 40px);
     position: relative;
     justify-self: end;
-    left: 125px;
+    left: clamp(40px, 10vw, 125px);
     bottom: 20px;
     height: fit-content;
     /* background: red; */
     
-  }
-  
-  .title2{
-    font-size: 80px;
-    height: fit-content;
-    /* background: green; */
   }
 }
 
@@ -77,7 +97,7 @@ nav{
   display: flex;
   justify-content: space-between;
   width: 460px;
-  margin: 30px 0px 0px 60px;
+  margin-top: 30px;
   
   #inp-menu:checked ~ #label-inp-menu{
     color: #344160;
@@ -120,19 +140,40 @@ nav{
   text-align: justify;
 }
 
-#body-pt2{
-  width: 350px;
-  height: 350px;
-  justify-self: center;
-  margin-top: 70px;
-
-}
-
 #rota{
-  margin: 50px 0px 0px 60px;
+  margin-top: 50px;
+  width: 460px;
 }
 
 img{
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 950px){
+  body{
+    grid-template-columns: 1fr
+  }
+  
+  #body-pt2{
+    align-items: center;
+  }
+
+  h1{
+    justify-self: center;
+  }
+
+  /* #body-pt1, #body-pt2{
+    padding: 30px;
+  } */
+
+  nav{
+    margin: 20px 0px;
+    /* justify-self: center; */
+  }
+
+  #rota{
+    margin: 30px 0px;
+    /* justify-self: center; */
+  }
 }

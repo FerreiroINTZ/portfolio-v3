@@ -21,7 +21,7 @@ function tecnologias() {
   }, [])
 
   return (
-    <div>
+    <>
       {
         outlet.part == 1 ? (
           <TecnologiesFields
@@ -36,7 +36,7 @@ function tecnologias() {
         )
         // exibira o card explicando sobre a tecnologia
       }
-    </div>
+    </>
   );
 }
 

@@ -10,9 +10,9 @@ function menu({ pages, currentPage, setCurrentPage }) {
 
   return (
     <>
-      <span className="lights light-title"></span>
+      {/* <span className="lights light-title"></span> */}
       {/* Luz de fundo do title */}
-      <h1 style={{ scale: 0.8, marginLeft: "50px", height: "250px" }}>
+      <h1>
         <span className="title title1">Ola, seja</span>
         <span className="title title2">Bem Vindo!</span>
         <span className="title title3">

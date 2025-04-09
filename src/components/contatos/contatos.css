@@ -1,9 +1,9 @@
 #contatos-container {
-  margin-top: 150px;
   display: flex;
   flex-direction: column;
   gap: 40px;
   width: fit-content;
+  margin-top: 100px;
   /* background: red; */
 
   li {

@@ -64,9 +64,9 @@
   position: relative;
   width: fit-content;
   height: 500px;
-  margin: 0px 0px 0px -100px;
   align-items: center;
   gap: 10px;
+  margin-top: 60px;
   /* background: red; */
 
   #project-card {
