@@ -20,6 +20,7 @@ import vite_logo from "../../../imgs/tools/vite.png"
 import notion_logo from "../../../imgs/tools/notion.png"
 import figma_logo from "../../../imgs/tools/figma.webp"
 import DBdiagram_logo from "../../../imgs/tools/dbDiagram.webp"
+import render_logo from "../../../imgs/tools/render.png"
 
 import Cards from "./card_label.jsx";
 import arrow from "../../../imgs/arrow.png"
@@ -123,6 +124,11 @@ const TecnologiesField = ({
           tecnologie: "Vite",
           img: vite_logo,
           about: "Ferramenta que agiliza a criação de projetos em React, evitando configurações manuais. Também oferece recursos modernos que otimizam o desenvolvimento.",
+        },
+        {
+          tecnologie: "Render",
+          img: render_logo,
+          about: "O Render e um servico de Nuvem. Geralmente eu subo meus servidores quando preciso testar ou mostrar algum Projeto.",
         }
       ]
     };
