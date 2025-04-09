@@ -7,11 +7,15 @@ import "./projetos.css";
 // imagens dos projetos
 import whatsapp2_image from "../../imgs/project/whatsapp2.png"
 import CWG_image from "../../imgs/project/cwg.png"
+import cookiesBaker_image from "../../imgs/project/cookies_baker.png"
+import listRegister_image from "../../imgs/project/listRegister.png"
 
 // imagens das Tecnologias usadas
 import node_logo from "../../imgs/back-end/node-js.png"
 import fastify_logo from "../../imgs/back-end/fastify.jpg"
 import postgres_logo from "../../imgs/back-end/postgres.png"
+import react_logo from "../../imgs/front-end/react-1.svg"
+import mongoDB_logo from "../../imgs/back-end/mongoDB.png"
 
 import {useValues} from "../../contex.jsx"
 
@@ -32,11 +36,12 @@ function projetos() {
         node_logo,
         fastify_logo,
         postgres_logo,
+        react_logo
       ],
       descricao:
       "Um projeto inspirado no App WhatsApp, feito para demonstrar minhas habilidades com WebSockets e Banco de dados.",
       categoria: ["back-end", "front-end"],
-      site: "https://github.com/FerreiroINTZ/Whatsapp-2",
+      site: "",
       gitHub: "https://github.com/FerreiroINTZ/Whatsapp-2",
     },
     {
@@ -45,13 +50,41 @@ function projetos() {
       tecnologias: [
         node_logo,
         fastify_logo,
-        postgres_logo,
+        mongoDB_logo,
+        react_logo
       ],
       descricao:
         "Um projeto inspirado em um jogo do Tik Tok. O objetivo e adivinhas a palavra do seu oponente.",
       categoria: ["back-end", "front-end"],
       site: "",
       gitHub: "https://github.com/FerreiroINTZ/Context-Words-Guess",
+    },
+    {
+      nome: "Cookies baker",
+      img: cookiesBaker_image,
+      tecnologias: [
+        node_logo,
+        fastify_logo,
+        mongoDB_logo,
+        react_logo
+      ],
+      descricao:
+        "Um projeto simples onde o usuario recebe um Cookie do servidor. Feito para testar as funcionalidades de Cookies do Fastify.",
+      categoria: ["back-end", "front-end"],
+      site: "",
+      gitHub: "https://github.com/FerreiroINTZ/Cookies-baker",
+    },
+    {
+      nome: "List Register",
+      img: listRegister_image,
+      tecnologias: [
+        react_logo
+      ],
+      descricao:
+        "Um projeto feito somente em React. Ele permite criar registros que sao salvos no LocalStorage.",
+      categoria: ["front-end"],
+      site: "",
+      gitHub: "https://github.com/FerreiroINTZ/List_Register",
     },
   ];
 

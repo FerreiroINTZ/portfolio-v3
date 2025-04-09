@@ -8,7 +8,7 @@ function text() {
       completas, com ou sem APIs próprias.  
     </p>
     <p className="texto-menu">
-      No front-end, foco em responsividade
+      No front-end, foco em estilo
       e animações com frameworks modernos. 
     </p>
     <p className="texto-menu">

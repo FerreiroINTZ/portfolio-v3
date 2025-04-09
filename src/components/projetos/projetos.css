@@ -131,6 +131,16 @@
       gap: 15px;
       margin-top: auto;
 
+      .link_disabled-btn{
+        background:rgb(255, 58, 58);
+        cursor: auto;
+
+        &:hover{
+          transform: scale(1);
+          opacity: .5;
+        }
+      }
+      
       button {
         flex-grow: 1;
         height: 40px;

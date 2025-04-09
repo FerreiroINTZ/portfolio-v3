@@ -20,9 +20,10 @@
     transition: .3s;
     
     p{
-        text-align: center;
-        width: fit-content;
-        padding: 12px 10px;
+      text-align: center;
+      width: fit-content;
+      padding: 12px 10px;
+      user-select: none;
     }
     
     .contatos-logos{

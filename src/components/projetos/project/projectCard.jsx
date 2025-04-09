@@ -20,9 +20,14 @@ function projectCard({project, currentProject, index}) {
       </ul>
       <p className="project-description">{project.descricao}</p>
       <div className="project-actions">
-        <button disabled={index == currentProject}>
-          <a href={project.site}>Site</a>
-        </button>
+        {project.site
+          ? (<button disabled={index == currentProject}>
+              <a href={project.site}>Site</a>
+            </button>)
+          : (<button className="link_disabled-btn" disabled={index == currentProject}>
+              <a>Site</a>
+            </button>)}
+        
         <button disabled={index == currentProject}>
           <a href={project.gitHub} target="__blank">GitHub</a>
         </button>
