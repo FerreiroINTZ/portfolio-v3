@@ -187,3 +187,9 @@
     rotate: 90deg;
   }
 }
+
+@media(max-width: 950px){
+  #project-container{
+    margin-top: 0px;
+  }
+}
