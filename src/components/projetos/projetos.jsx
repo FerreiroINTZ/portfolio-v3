@@ -83,7 +83,7 @@ function projetos() {
       descricao:
         "Um projeto feito somente em React. Ele permite criar registros que sao salvos no LocalStorage.",
       categoria: ["front-end"],
-      site: "",
+      site: "https://ferreirointz.github.io/List_Register/",
       gitHub: "https://github.com/FerreiroINTZ/List_Register",
     },
   ];

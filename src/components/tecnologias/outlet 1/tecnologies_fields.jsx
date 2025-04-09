@@ -128,7 +128,7 @@ const TecnologiesField = ({
         {
           tecnologie: "Render",
           img: render_logo,
-          about: "O Render e um servico de Nuvem. Geralmente eu subo meus servidores quando preciso testar ou mostrar algum Projeto.",
+          about: "O Render é um serviço de Nuvem. Geralmente eu subo meus servidores quando preciso testar ou mostrar algum Projeto.",
         }
       ]
     };

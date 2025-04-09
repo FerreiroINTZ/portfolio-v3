@@ -22,7 +22,7 @@ function projectCard({project, currentProject, index}) {
       <div className="project-actions">
         {project.site
           ? (<button disabled={index == currentProject}>
-              <a href={project.site}>Site</a>
+              <a href={project.site} target="__blank">Site</a>
             </button>)
           : (<button className="link_disabled-btn" disabled={index == currentProject}>
               <a>Site</a>
